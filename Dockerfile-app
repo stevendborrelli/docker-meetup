@@ -1,0 +1,15 @@
+FROM node
+
+MAINTAINER Steven Borrelli <steve@borrelli.org>
+
+RUN curl -L -O https://github.com/heroku/node-js-sample/archive/master.zip
+
+RUN unzip master.zip
+
+WORKDIR node-js-sample-master
+
+RUN /node/bin/npm install 
+
+EXPOSE 5000
+
+CMD /node/bin/node web.js
